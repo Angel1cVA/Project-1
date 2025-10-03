@@ -21,6 +21,8 @@ public class EnergyAccount {
     //Constructor
     EnergyAccount(double bal, double rate){
         //Construstor should accept starting balance and the renewable rate (this as a decimal, where .10 = 10%)
+        balance = bal;
+        renewableRate = rate;
     }
 
     void consume(double amount){
@@ -36,9 +38,8 @@ public class EnergyAccount {
     }
 
     void addRenewableCredit(){
-        double credited;
-        credited = balance * renewableRate;
-        balance += credited;
+        lastCredit = balance * renewableRate;
+        balance += lastCredit;
     }
 }
 //Class stores monthly energy balance (kWh (kilowatt-hours)) and a renewable energy rate (percent of energy genned by solar/wind/water/etc) and the last credited renewable energy amount
