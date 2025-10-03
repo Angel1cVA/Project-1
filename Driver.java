@@ -36,7 +36,7 @@ public class Driver {
             System.out.print("Enter a number of months to smulate: ");
             months = scanner.nextInt();
         }
-        double balance = account.getBalance();
+
         //loop through an amount of times equal to the amount of months
         System.out.println("== Simulation Begin ==");
         for (int count = 0; count < months; count++){
@@ -63,10 +63,12 @@ public class Driver {
             account.generate(generated);
             account.addRenewableCredit();
             double credited = account.getLastCredit();
+            double balance = account.getBalance();
             System.out.println("Renewable credit applied: " + credited + "kWh");
             System.out.println("Balance after month " + (count + 1) + ": " + balance + "kWh");
         }
         System.out.println("== Simulation Complete ==");
+        double balance = account.getBalance();
         System.out.print("Final balance: " + balance + "kWh");
 
         scanner.close();
